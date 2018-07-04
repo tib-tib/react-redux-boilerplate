@@ -4,6 +4,6 @@ import reducers from './reducers'
 
 const combinedReducers = combineReducers(reducers)
 
-export default function (initialState) {
+export default function(initialState) {
   return createStore(combinedReducers, initialState, composeWithDevTools())
 }

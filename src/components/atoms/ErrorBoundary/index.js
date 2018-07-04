@@ -6,15 +6,16 @@ export default class ErrorBoundary extends Component {
     this.state = { hasError: false }
   }
 
-  componentDidCatch(error, info) {
+  componentDidCatch() {
     this.setState({ hasError: true })
-    console.warn(error, info);
   }
 
   render() {
-    if (this.state.hasError) {
-      return <h1>Something went wrong.</h1>
+    const { hasError } = this.state
+    const { children } = this.props
+    if (hasError) {
+      return <div>Something went wrong.</div>
     }
-    return this.props.children
+    return children
   }
 }

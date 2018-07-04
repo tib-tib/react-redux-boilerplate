@@ -1,0 +1,14 @@
+{
+  "extends": ["airbnb", "prettier"],
+  "rules": {
+    "object-curly-newline": 0,
+    "lines-between-class-members": 2,
+    "react/jsx-filename-extension": false,
+    "react/jsx-one-expression-per-line": false,
+    "react/prop-types": false
+  },
+  "globals": {
+    "fetch": true,
+    "document": true
+  }
+}

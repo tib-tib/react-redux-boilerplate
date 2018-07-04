@@ -3,28 +3,25 @@ import { connect } from 'react-redux'
 
 import * as userActions from '../../../actions/user'
 
-import ErrorBoundary from '../../atoms/ErrorBoundary'
-
 class Home extends Component {
-  componentDidMount () {
-    userActions.fetchUsers(this.props.dispatch)
+  componentDidMount() {
+    const { dispatch } = this.props
+    userActions.fetchUsers(dispatch)
   }
 
-  render () {
+  render() {
     const { users, loading, error } = this.props
     return (
-      <ErrorBoundary>
+      <div>
         <h1>Users</h1>
         {loading && <div>Loading...</div>}
         {error && <div>An error occured</div>}
         {users.length && <div>{users.length} users found</div>}
-      </ErrorBoundary>
+      </div>
     )
   }
 }
 
-const mapStateToProps = (state, props) => {
-  return state.user
-}
+const mapStateToProps = state => state.user
 
 export default connect(mapStateToProps)(Home)
