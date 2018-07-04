@@ -1,4 +1,4 @@
-import { USERS_FETCH, USERS_FETCH_SUCCESS, USERS_FETCH_ERROR } from '../constants/user'
+import { FETCH_USERS_REQUEST, FETCH_USERS_SUCCESS, FETCH_USERS_ERROR } from '../actions/user'
 
 const INITIAL_STATE = {
   loading: false,
@@ -8,17 +8,17 @@ const INITIAL_STATE = {
 
 const setLoading = state => ({ ...state, loading: true })
 
-const setUsers = (state, users) => ({ ...state, users, loading: false })
+const setUsers = (state, users) => ({ ...state, users, error: null, loading: false })
 
 const setError = (state, error) => ({ ...state, error, loading: false })
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case USERS_FETCH:
+    case FETCH_USERS_REQUEST:
       return setLoading(state)
-    case USERS_FETCH_SUCCESS:
+    case FETCH_USERS_SUCCESS:
       return setUsers(state, action.users)
-    case USERS_FETCH_ERROR:
+    case FETCH_USERS_ERROR:
       return setError(state, action.error)
     default:
       return state
