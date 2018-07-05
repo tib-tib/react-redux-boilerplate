@@ -10,6 +10,13 @@ export const fetchUsers = () => dispatch => {
     dispatch(fetchUsersRequest())
     return fetch('http://www.mocky.io/v2/5b3b93983300006100599d58')
       .then(response => response.json())
-      .then(users => dispatch(fetchUsersSuccess(users)))
-      .catch(error => dispatch(fetchUsersError(error)))
+      .then(response => {
+        if (response.error) {
+          throw new Error(response.error)
+        }
+        dispatch(fetchUsersSuccess(response))
+      })
+      .catch(error => {
+        dispatch(fetchUsersError(error.message))
+      })
 }

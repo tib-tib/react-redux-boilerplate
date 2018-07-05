@@ -6,12 +6,25 @@
   "repository": "git@github.com:tib-tib/react-redux-boilerplate.git",
   "author": "Thibaut Gatouillat <thibaut.gatouillat@gmail.com>",
   "license": "MIT",
+  "jest": {
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/**/*.js"
+    ],
+    "coverageReporters": [
+      "html",
+      "text",
+      "text-summary"
+    ]
+  },
   "scripts": {
     "start": "webpack-dev-server --mode development --hot",
+    "test": "jest",
     "lint": "prettier --write src/**/**/*.js && eslint ./src --ext .js"
   },
   "devDependencies": {
     "babel-core": "6.26.3",
+    "babel-jest": "23.2.0",
     "babel-loader": "7.1.4",
     "babel-preset-env": "1.7.0",
     "babel-preset-react": "6.24.1",
@@ -24,9 +37,12 @@
     "eslint-plugin-jsx-a11y": "6.1.0",
     "eslint-plugin-prettier": "2.6.1",
     "eslint-plugin-react": "7.10.0",
+    "fetch-mock": "6.5.0",
     "html-webpack-plugin": "3.2.0",
+    "jest": "23.3.0",
     "mini-css-extract-plugin": "0.4.0",
     "prettier": "1.13.7",
+    "redux-mock-store": "1.5.3",
     "stylelint": "8.3.0",
     "stylelint-config-recommended": "2.1.0",
     "stylelint-webpack-plugin": "0.10.5",

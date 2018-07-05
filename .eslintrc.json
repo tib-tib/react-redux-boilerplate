@@ -9,6 +9,10 @@
   },
   "globals": {
     "fetch": true,
-    "document": true
+    "document": true,
+    "describe": true,
+    "it": true,
+    "expect": true,
+    "afterEach": true
   }
 }

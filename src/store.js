@@ -6,7 +6,17 @@ import reducers from './reducers'
 const combinedReducers = combineReducers(reducers)
 
 export default function(initialState) {
-  return createStore(combinedReducers, initialState, composeWithDevTools(
+  const store = createStore(combinedReducers, initialState, composeWithDevTools(
     applyMiddleware(thunkMiddleware)
   ))
+
+  if (module.hot) {
+    module.hot.accept('./reducers', () => {
+      // eslint-disable-next-line
+      const nextRootReducer = require('./reducers')
+      store.replaceReducer(nextRootReducer)
+    })
+  }
+
+  return store
 }
