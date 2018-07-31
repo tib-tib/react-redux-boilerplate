@@ -11,7 +11,6 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].[hash].js'
   },
-  devtool: 'inline-source-map',
   devServer: {
     contentBase: './dist',
     open: true
