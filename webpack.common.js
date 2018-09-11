@@ -3,17 +3,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const WebpackMd5Hash = require('webpack-md5-hash')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
-const StyleLintPlugin = require('stylelint-webpack-plugin')
 
 module.exports = {
   entry: { main: './src/index.js' },
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].[hash].js'
-  },
-  devServer: {
-    contentBase: './dist',
-    open: true
   },
   module: {
     rules: [
@@ -33,6 +28,12 @@ module.exports = {
           'postcss-loader',
           'sass-loader'
         ]
+      },
+      {
+        test: /\.(png|svg|jpg|gif|eot|ttf|woff)$/,
+        use: {
+          loader: 'file-loader'
+        }
       }
     ]
   },
@@ -47,11 +48,6 @@ module.exports = {
       template: './src/index.html',
       filename: 'index.html'
     }),
-    new WebpackMd5Hash(),
-    new StyleLintPlugin({
-      configFile: './stylelint.config.js',
-      files: './src/scss/*.scss',
-      syntax: 'scss'
-    })
+    new WebpackMd5Hash()
   ]
 }

@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const User = ({ user }) => (
   <div style={{ margin: 10 }}>
@@ -6,6 +6,6 @@ const User = ({ user }) => (
     <div>Surname: {user.lastName}</div>
     <div>Email: {user.email}</div>
   </div>
-)
+);
 
-export default User
+export default User;

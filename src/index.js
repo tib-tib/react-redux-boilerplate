@@ -1,23 +1,23 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import { Provider } from 'react-redux'
-import { BrowserRouter } from 'react-router-dom'
-import { hot } from 'react-hot-loader'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
+import { hot } from 'react-hot-loader';
 
-import routes from './routes'
-import createStore from './store'
+import routes from './routes';
+import createStore from './store';
 
-const store = createStore({})
+const store = createStore({});
 
 const App = () => {
   ReactDOM.render(
     <Provider store={store}>
       <BrowserRouter>{routes}</BrowserRouter>
     </Provider>,
-    document.getElementById('app')
-  )
-}
+    document.getElementById('app'),
+  );
+};
 
-App()
+App();
 
-export default hot(module)(App)
+export default hot(module)(App);

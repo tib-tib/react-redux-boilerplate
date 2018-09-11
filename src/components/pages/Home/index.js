@@ -1,27 +1,27 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-import * as userActions from '../../../actions/user'
-import UserSection from '../../organisms/UserSection'
+import * as userActions from '../../../actions/user';
+import UserSection from '../../organisms/UserSection';
 
 class Home extends Component {
   componentDidMount() {
-    const { dispatch } = this.props
-    dispatch(userActions.fetchUsers())
+    const { dispatch } = this.props;
+    dispatch(userActions.fetchUsers());
   }
 
   render() {
-    const { users, loading, error } = this.props
+    const { users, loading, error } = this.props;
     return (
       <div>
         {loading && <div>Loading...</div>}
         {error && <div>An error occured</div>}
         {users.length > 0 && <UserSection users={users} />}
       </div>
-    )
+    );
   }
 }
 
-const mapStateToProps = state => state.user
+const mapStateToProps = state => state.user;
 
-export default connect(mapStateToProps)(Home)
+export default connect(mapStateToProps)(Home);
