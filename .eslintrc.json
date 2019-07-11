@@ -1,20 +1,18 @@
 {
   "extends": ["airbnb"],
-  "rules": {
-    "max-len": [2, 120],
-    "object-curly-newline": 0,
-    "lines-between-class-members": 2,
-    "react/jsx-filename-extension": false,
-    "react/jsx-one-expression-per-line": false,
-    "react/prop-types": false
+  "env": {
+    "browser": true,
+    "jest": true
   },
-  "globals": {
-    "fetch": true,
-    "document": true,
-    "describe": true,
-    "it": true,
-    "expect": true,
-    "afterEach": true,
-    "beforeEach": true
+  "rules": {
+    "object-curly-newline": 0,
+    "max-len": ["error", {
+      "code": 120
+    }],
+    "lines-between-class-members": 2,
+    "react/jsx-filename-extension": 0,
+    "react/jsx-one-expression-per-line": 0,
+    "react/prop-types": 0,
+    "import/no-named-as-default": 0
   }
 }

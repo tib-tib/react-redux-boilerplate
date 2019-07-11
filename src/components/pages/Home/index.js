@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import * as userActions from '../../../actions/user';
 import UserSection from '../../organisms/UserSection';
 
-class Home extends Component {
+export class Home extends Component {
   componentDidMount() {
     const { dispatch } = this.props;
     dispatch(userActions.fetchUsers());
@@ -15,13 +15,13 @@ class Home extends Component {
     return (
       <div>
         {loading && <div>Loading...</div>}
-        {error && <div>An error occured</div>}
+        {error && <div>An error occured: {error}</div>}
         {users.length > 0 && <UserSection users={users} />}
       </div>
     );
   }
 }
 
-const mapStateToProps = state => state.user;
+export const mapStateToProps = state => state.user;
 
 export default connect(mapStateToProps)(Home);

@@ -16,6 +16,6 @@ export const fetchUsers = () => (dispatch) => {
       dispatch(fetchUsersSuccess(data));
     })
     .catch((error) => {
-      dispatch(fetchUsersError(error.response ? error.response.data : error.message));
+      dispatch(fetchUsersError(error.response.data));
     });
 };
