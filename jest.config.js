@@ -1,18 +1,29 @@
 module.exports = {
   verbose: true,
-  setupFilesAfterEnv: ['./setupTests.js'],
+  roots: [
+    '<rootDir>/src',
+    '<rootDir>/test',
+  ],
+  testMatch: [
+    '*.spec.(ts|tsx)',
+    '**/*.spec.(ts|tsx)',
+  ],
+  transform: {
+    '^.+\\.(ts|tsx)?$': 'ts-jest',
+  },
+  // Setup Enzyme
+  snapshotSerializers: ['enzyme-to-json/serializer'],
+  setupFilesAfterEnv: ['<rootDir>/setupEnzyme.ts'],
   collectCoverage: true,
   collectCoverageFrom: [
-    'src/**/*.js',
+    'src/**/*.ts',
+    'src/**/*.tsx',
   ],
   coveragePathIgnorePatterns: [
-    './src/index.js',
-    './src/store.js',
-    './src/routes.js',
-    './src/reducers/index.js',
+    './src/index.ts',
+    './src/store/index.ts',
   ],
   coverageReporters: [
-    'html',
     'text',
     'text-summary',
   ],
