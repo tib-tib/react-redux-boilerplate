@@ -1,12 +1,24 @@
 import * as React from 'react';
+import {createUseStyles} from 'react-jss';
 
 export interface AvatarProps {
-  email: string;
+  url: string;
 };
 
-export const Avatar: React.FunctionComponent<AvatarProps> = (props) => (
-  <img
-    src={`https://api.adorable.io/avatars/150/${props.email}.png`}
-    alt={props.email}
-  />
-);
+const useStyles = createUseStyles({
+  avatar: {
+    width: 100,
+    height: 100,
+    borderRadius: '25%',
+  }
+});
+
+export const Avatar: React.FunctionComponent<AvatarProps> = (props) => {
+  const classes = useStyles();
+  return (
+    <img className={classes.avatar}
+      src={props.url}
+      alt="avatar"
+    />
+  );
+};

@@ -13,6 +13,7 @@
   },
   "scripts": {
     "start:typescript": "webpack-dev-server --open --config webpack.typescript.js --hot",
+    "build:typescript": "webpack --config webpack.typescript.js",
     "start": "webpack-dev-server --open --config webpack.dev.js --hot",
     "build": "webpack --config webpack.prod.js",
     "test": "jest",
@@ -57,7 +58,7 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-hot-loader": "^4.12.1",
-    "react-jss": "^8.6.1",
+    "react-jss": "10.0.0-alpha.27",
     "react-redux": "^7.1.0",
     "react-router-dom": "^5.0.1",
     "redux": "^4.0.1",
