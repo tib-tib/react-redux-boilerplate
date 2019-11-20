@@ -1,19 +1,9 @@
 export const FETCH_USERS = 'FETCH_USERS';
 export const CREATE_USER = 'CREATE_USER';
-// export const FETCH_USERS_SUCCESS = 'FETCH_USERS_SUCCESS';
-// export const FETCH_USERS_ERROR = 'FETCH_USERS_ERROR';
-
-// enum Gender {
-//     Male,
-//     Female
-// }
 
 export interface User {
-    // id: number;
-    // firstName: string;
-    // lastName: string;
-    email: string;
-    // gender: Gender;
+    username: string;
+    avatar: string;
 }
 
 export interface UserState {

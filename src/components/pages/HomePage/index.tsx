@@ -1,32 +1,28 @@
 import * as React from 'react';
 import { AppState } from '../../../store';
-import { createUser } from '../../../store/user/actions';
 import { User } from '../../../store/user/types';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+import {createUseStyles} from 'react-jss';
 
-import { Avatar } from '../../atoms/Avatar';
+import { CreateUserForm } from '../../molecules/CreateUserForm';
+import { UserList } from '../../organisms/UserList';
+
+const useStyles = createUseStyles({
+  home: {
+    background: '#ededed',
+    minHeight: 'calc(100% - 100px)',
+    width: 'calc(100% - 100px)',
+    padding: 50,
+  },
+});
 
 export const HomePage: React.FunctionComponent = () => {
-  const users = useSelector((store: AppState) => store.user.users);
-  const [email, setEmail] = React.useState<string>('');
-  const dispatch = useDispatch();
-
-  const createNewUser = () => {
-    dispatch(createUser({ email }));
-    setEmail('');
-  };
-
+  const classes = useStyles();
+  const users: User[] = useSelector((store: AppState) => store.user.users);
   return (
-    <div>
-      <div>
-        <input value={email} onChange={e => setEmail(e.target.value)}/>
-        <button onClick={createNewUser}>Create user</button>
-      </div>
-      <div>
-        {users.length > 0 && users.map((user: User) => (
-          <Avatar email={user.email} />
-        ))}
-      </div>
+    <div className={classes.home}>
+      <CreateUserForm />
+      <UserList users={users} />
     </div>
   );
 };
