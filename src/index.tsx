@@ -1,19 +1,16 @@
 import * as React from 'react';
 import { render } from 'react-dom';
-import { Provider } from "react-redux";
-import { configureStore } from "./store";
+import { Provider } from 'react-redux';
+import { configureStore } from './store';
 
 import { HomePage } from './components/pages/HomePage';
 
 const store = configureStore();
 
-const App = () => (
+const App: React.FunctionComponent = () => (
   <Provider store={store}>
     <HomePage />
   </Provider>
 );
 
-render(
-    <App />,
-    document.getElementById("app"),
-);
+render(<App />, document.getElementById('app'));

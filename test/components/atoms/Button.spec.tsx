@@ -21,7 +21,7 @@ describe('<Button />', () => {
   it('should have an attribute disabled if prop `disabled` is true', () => {
     const text = 'fake-text';
     const onClick = jest.fn();
-    const wrapper = render(<Button text={text} onClick={onClick} disabled={true} />);
+    const wrapper = render(<Button text={text} onClick={onClick} disabled />);
     expect(wrapper.attr('disabled')).toEqual('disabled');
   });
 });

@@ -1,6 +1,6 @@
 import configureMockStore from 'redux-mock-store';
 import { createUser } from '../../../src/store/user/actions';
-import { User, CREATE_USER, UserActionTypes } from '../../../src/store/user/types';
+import { User, CREATE_USER } from '../../../src/store/user/types';
 
 const mockStore = configureMockStore();
 

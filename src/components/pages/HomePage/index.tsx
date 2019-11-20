@@ -1,8 +1,8 @@
 import * as React from 'react';
+import { useSelector } from 'react-redux';
+import { createUseStyles } from 'react-jss';
 import { AppState } from '../../../store';
 import { User } from '../../../store/user/types';
-import { useSelector } from 'react-redux';
-import {createUseStyles} from 'react-jss';
 
 import { CreateUserForm } from '../../molecules/CreateUserForm';
 import { UserList } from '../../organisms/UserList';
