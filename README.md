@@ -1,6 +1,6 @@
 # React Redux Boilerplate
 
-Boilerplate for React project using Redux, Webpack and CSS-in-JS.
+Boilerplate for React project using TypeScript, Redux, Webpack and CSS-in-JS.
 
 ## Install the dependencies
 
