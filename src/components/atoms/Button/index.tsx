@@ -1,12 +1,12 @@
 import * as React from 'react';
-import {createUseStyles} from 'react-jss';
+import { createUseStyles } from 'react-jss';
 
 export interface ButtonProps {
   text: string;
   onClick: () => void;
   className?: string;
   disabled?: boolean;
-};
+}
 
 const useStyles = createUseStyles({
   button: {
@@ -23,19 +23,15 @@ const useStyles = createUseStyles({
     '&:disabled': {
       opacity: 0.5,
       cursor: 'not-allowed',
-    }
-  }
+    },
+  },
 });
 
-export const Button: React.FunctionComponent<ButtonProps> = (props) => {
+export const Button: React.FunctionComponent<ButtonProps> = props => {
   const classes = useStyles();
   const { text, onClick, disabled, className } = props;
   return (
-    <button
-      className={[classes.button, className].join(' ')}
-      onClick={onClick}
-      disabled={disabled}
-    >
+    <button className={[classes.button, className].join(' ')} onClick={onClick} disabled={disabled}>
       {text}
     </button>
   );

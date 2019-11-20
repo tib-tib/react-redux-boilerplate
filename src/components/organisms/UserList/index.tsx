@@ -1,12 +1,12 @@
 import * as React from 'react';
+import { createUseStyles } from 'react-jss';
 import { User } from '../../../store/user/types';
-import {createUseStyles} from 'react-jss';
 
 import { UserCard } from '../../molecules/UserCard';
 
 export interface UserProps {
   users: User[];
-};
+}
 
 const useStyles = createUseStyles({
   users: {
@@ -27,17 +27,15 @@ const useStyles = createUseStyles({
   },
 });
 
-
-export const UserList: React.FunctionComponent<UserProps> = (props) => {
+export const UserList: React.FunctionComponent<UserProps> = props => {
   const { users } = props;
   const classes = useStyles();
 
   return (
     <div className={classes.users}>
       {users.length === 0 && <div className={classes.noUsers}>No users</div>}
-      {users.length > 0 && users.map((user: User) => (
-        <UserCard key={user.username} username={user.username} avatar={user.avatar} />
-      ))}
+      {users.length > 0 &&
+        users.map((user: User) => <UserCard key={user.username} username={user.username} avatar={user.avatar} />)}
     </div>
   );
 };

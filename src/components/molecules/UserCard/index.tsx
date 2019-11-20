@@ -1,12 +1,12 @@
 import * as React from 'react';
-import {createUseStyles} from 'react-jss';
+import { createUseStyles } from 'react-jss';
 
 import { Avatar } from '../../atoms/Avatar';
 
 export interface UserProps {
   username: string;
   avatar: string;
-};
+}
 
 const useStyles = createUseStyles({
   userCard: {
@@ -28,10 +28,10 @@ const useStyles = createUseStyles({
     overflow: 'hidden',
     textOverflow: 'ellipsis',
     whiteSpace: 'nowrap',
-  }
+  },
 });
 
-export const UserCard: React.FunctionComponent<UserProps> = (props) => {
+export const UserCard: React.FunctionComponent<UserProps> = props => {
   const { username, avatar } = props;
   const classes = useStyles();
 

@@ -1,11 +1,11 @@
 import * as React from 'react';
-import {createUseStyles} from 'react-jss';
+import { createUseStyles } from 'react-jss';
 
 export interface InputProps {
   value: string;
   className?: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void,
-};
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
 
 const useStyles = createUseStyles({
   input: {
@@ -14,17 +14,11 @@ const useStyles = createUseStyles({
     borderRadius: 5,
     outline: 0,
     fontSize: 16,
-  }
+  },
 });
 
-export const Input: React.FunctionComponent<InputProps> = (props) => {
+export const Input: React.FunctionComponent<InputProps> = props => {
   const classes = useStyles();
   const { value, onChange, className } = props;
-  return (
-    <input
-      className={[classes.input, className].join(' ')}
-      onChange={onChange}
-      value={value}
-    />
-  );
+  return <input className={[classes.input, className].join(' ')} onChange={onChange} value={value} />;
 };
