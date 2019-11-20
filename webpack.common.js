@@ -4,27 +4,27 @@ const WebpackMd5Hash = require('webpack-md5-hash');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-  entry: ['@babel/polyfill', './src/index.js'],
+  entry: './src/index.tsx',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].[hash].js'
   },
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js'],
+  },
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.tsx?$/,
         exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader'
-        }
+        loader: 'ts-loader',
       },
       {
-        test: /\.(png|svg|jpg|gif|eot|ttf|woff)$/,
-        use: {
-          loader: 'file-loader'
-        }
-      }
-    ]
+        enforce: 'pre',
+        test: /\.js$/,
+        loader: 'source-map-loader',
+      },
+    ],
   },
   plugins: [
     new CleanWebpackPlugin(),
